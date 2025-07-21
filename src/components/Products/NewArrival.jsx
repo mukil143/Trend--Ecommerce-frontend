@@ -131,8 +131,12 @@ const NewArrival = () => {
     const container= scrollref.current;
     if (container) {
       container.addEventListener('scroll', updateTheScrollButtons);
+      updateTheScrollButtons();
+      return () => {
+        container.removeEventListener('scroll', updateTheScrollButtons);
+      }
     }
-  })
+  },[])
   return (
     <section className='px-4 md:px-6 lg:px-8 scroll-smooth '>
       <div className="container mx-auto text-center mb-10 relative">
@@ -152,9 +156,9 @@ const NewArrival = () => {
       {/* New Arrivals Section */}
       
       </div>
-      <div ref={scrollref} className=' scrollbar-hide  container mx-auto flex overflow-x-scroll scroll-smooth   space-x-6 relative '>
+      <div ref={scrollref} className='   container mx-auto flex overflow-x-auto no-scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 scroll-smooth   space-x-6 relative '>
         {newArrivals.map((item,idx)=>(
-          <div key={idx} className='min-w-[100%] scrollbar-hide sm:min-w-[50%] lg:min-w-[30%] relative' >
+          <div key={idx} className='min-w-[100%]  sm:min-w-[50%] lg:min-w-[30%] relative' >
             <img  className='w-full h-[500px] object-cover' src={item.images[0].url} alt={item.images[0].alt} />
             <div className='absolute bottom-0 left-0 right-0  text-white  p-4  bg-opacity-50 backdrop-blur-md rounded-b-lg'>
               <Link to={`/product/${item._id}`} className='block'>
