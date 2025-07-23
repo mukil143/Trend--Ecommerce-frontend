@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const NewArrival = () => {
   const scrollref=useRef(null);
-  console.log(scrollref);
+
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(false);
@@ -120,11 +120,6 @@ const NewArrival = () => {
       setCanScrollLeft(leftscroll>0);  
       setCanScrollRight(rightscroll);
     }
-    console.log({
-      scrollLeft: container.scrollLeft,
-      scrollWidth: container.scrollWidth,
-      clientWidth: container.clientWidth,
-    })
   }
 
   useEffect(()=>{
