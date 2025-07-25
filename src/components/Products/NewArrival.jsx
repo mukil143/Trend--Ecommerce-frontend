@@ -105,7 +105,7 @@ const NewArrival = () => {
   ]
 
   const scroll=(direction)=>{
-    const scrollAmount = direction === 'left' ? -300 : 300;
+    const scrollAmount = direction === 'left' ? -520 : 520;
     scrollref.current.scrollBy({
       left: scrollAmount,
       behavior: 'smooth'
