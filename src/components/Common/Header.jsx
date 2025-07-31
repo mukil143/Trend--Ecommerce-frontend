@@ -6,12 +6,10 @@ import CartDrawer from '../Layout/CartDrawer'
 const Header = () => {
   return (
     <>
-    <section className='shadow-lg' >
         <Topbar/>
-        <Navbar/>
+    <section className='shadow-lg sticky top-0 z-50 bg-white ' >
+        <Navbar />
         <CartDrawer/>
-        {/* <Navbar/>
-        <CartDrawer/> */}
     </section>
     </>
   )

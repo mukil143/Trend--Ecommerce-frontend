@@ -17,14 +17,14 @@ const GenderCollectionSection = () => {
     <section className='py-16 px-4 lg:px-0' >
       <div className='container mx-auto flex flex-col md:flex-row gap-8'>
        <div className='relative flex-1'>
-        <img src={image[1].src} alt={image[1].alt} className='w-full h-[700px] object-cover' />
+        <img src={image[1].src} alt={image[1].alt} className='w-full h-[500px] md:h-[700px] object-cover' />
         <div className='absolute bottom-8 left-3 opacity-95 p-4 bg-white'>
           <h2 className='text-2xl font-bold text-gray-900 mb-3'>Women's Collection</h2>
           <Link to={"/collections/all?gender=Women"} className='underline text-gray-900'>ShopNow</Link>
         </div>
        </div>
        <div className='relative flex-1'>
-        <img src={image[0].src} alt={image[0].alt} className='w-full h-[700px] object-cover' />
+        <img src={image[0].src} alt={image[0].alt} className='w-full h-[500px] md:h-[700px] object-cover' />
         <div className='absolute  bottom-8 left-3 opacity-95 p-4 bg-white'>
           <h2 className='text-2xl font-bold text-gray-900 mb-3'>Men's Collection</h2>
           <Link to={"/collections/all?gender=Men"} className='underline text-gray-900'>ShopNow</Link>

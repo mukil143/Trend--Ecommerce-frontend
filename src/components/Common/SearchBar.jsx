@@ -19,10 +19,10 @@ const SearchBar = () => {
     }
   return (
     <>
-    <div className={`flex justify-center items-center ${isOpen?"absolute top-0 left-0  transition-all ease-out duration-75 bg-white w-full h-28 z-50":"w-auto"}`} >
+    <div className={`flex justify-center items-center ${isOpen?"absolute top-0 left-0  transition-all ease-out duration-75 bg-white w-full h-22 md:h-28 z-50":"w-auto"}`} >
         {isOpen?(
            <form  onSubmit={handleSubmit} className=' relative flex items-center justify-center w-full' >
-            <div className=' flex items-center relative w-1/2 px-2 py-1  shadow-lg  rounded-lg text-black bg-gray-100'  >
+            <div className=' flex items-center relative w-3/4 md:w-1/2 px-2 py-1  shadow-lg  rounded-lg text-black bg-gray-100'  >
 
             <input  value={searchTerm} onChange={(e)=>{setsearchTerm(e.target.value)}} type="text" className='outline-none   w-full bg-gray-100 text-black px-2 py-1' placeholder='Search Items....' />
             <button className='  p-2  hover:bg-gray-200 rounded-full cursor-pointer' type='submit' >

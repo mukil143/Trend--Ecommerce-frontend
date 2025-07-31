@@ -100,18 +100,7 @@ const placeholderProducts = [
 ]
 const Home = () => {
 
-  const newArrivals =[
-    {
-      _id: "1",
-      name:"Stylish Jacket",
-      price: 320,
-      images:[
-        {
-          url:""
-        }
-      ]
-    }
-  ]
+  
   return (
     <>
       <div>

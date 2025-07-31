@@ -13,7 +13,7 @@ const Topbar = () => {
       <div className='flex px-14 py-1 space-x-5   text-center items-center justify-between' >
 
       <div className='md:flex space-x-3 items-center  hidden '  >
-        <Link to={"/"}>
+        <Link className='' to={"/"}>
         <FaMeta/>
         </Link>
         <Link to={"/"}>
@@ -25,7 +25,7 @@ const Topbar = () => {
          
          
       </div>
-      <div className='grow' >
+      <div className='grow text-xs md:text-sm lg:text-lg' >
         <p>We ship worldwide-Fast and reliable shipping!</p>
       </div>
       <div className='hidden md:block' >

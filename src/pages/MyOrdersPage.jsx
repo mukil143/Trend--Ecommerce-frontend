@@ -34,7 +34,7 @@ const MyOrdersPage = () => {
                         },
                     ],
                     totalPrice:100,
-                    isPaid:true,
+                    isPaid:false,
                     quantity:1,
                 },
 
@@ -45,7 +45,7 @@ const MyOrdersPage = () => {
   return (
     <section className='max-w-7xl mx-auto p-4 sm:p-6'>
         <h2 className='text-xl font-bold sm:text-2xl mb-6'>My Orders</h2>
-        <div className="relative shadow-md sm:rounded-lg overflow-hidden">
+        <div className="relative shadow-md sm:rounded-lg overflow-x-auto">
             <table className='min-w-full text-left text-gray-500 '>
                 <thead className='bg-gray-100 text-sm uppercase text-gray-700'>
                     <tr className='text-left'>
@@ -68,11 +68,12 @@ const MyOrdersPage = () => {
                             </td>
                             <td className="p-2 sm:p-4 text-gray-400">
                                 {new Date(item.createdAt).toLocaleDateString()}
-                                <span> </span>
+                                {" "}
                                  {new Date(item.createdAt).toLocaleTimeString()}
                             </td>
                             <td className="p-2 sm:p-4 text-gray-600">
-                                {item.shippingAddress.city},{item.shippingAddress.country}
+                                {item.shippingAddress?`${item.shippingAddress.city},${item.shippingAddress.country}`:"N/A"}
+                                
                             </td>
                             <td className="p-2 sm:p-4 text-gray-600">
                                 {item.quantity}
@@ -81,7 +82,7 @@ const MyOrdersPage = () => {
                                 ₹{item.totalPrice}
                             </td>
                             <td className="p-2 sm:p-4 text-gray-600 ">
-                                <span className='bg-green-200 px-1  py-1 rounded-lg text-green-700'>paid</span>
+                                <span className={` px-2  py-1 text-xs sm:text-sm font-medium rounded-full ${item.isPaid?" bg-green-200 text-green-700":"bg-red-200 text-red-700"}`}>{item.isPaid?"Paid":"Pending"}</span>
                             </td>
                            </tr> 
                         ))

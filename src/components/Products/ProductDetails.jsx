@@ -119,7 +119,7 @@ const ProductDetails = () => {
                 {/* Main image */}
                 <div className=' md:w-1/2'>
                   <div className='mb-4 '>
-                    <img className='rounded-lg w-full object-cover   h-auto' src={mainImage} alt={selectedProduct.image[0].alt} />
+                    <img className='rounded-lg w-full object-cover   h-[500px] md:h-[700px]' src={mainImage} alt={selectedProduct.image[0].alt} />
                   </div>
                 </div>
               {/* Mobile thumbnil */}

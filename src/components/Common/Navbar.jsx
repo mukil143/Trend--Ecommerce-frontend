@@ -24,7 +24,7 @@ const Navbar = () => {
   const items = [
     {
       name: "MEN",
-      href: "#",
+      href: "collections/all",
     },
     {
       name: "WOMEN",
@@ -56,12 +56,12 @@ const Navbar = () => {
   ];
 
   return (
-    <>
+    <div className="sticky top-0 z-50 bg-white shadow-sm">
       
         
-            <div className=" container mx-auto flex justify-between py-4 px-6   items-center">
+            <div className=" container mx-auto  flex justify-between py-2 px-4 md:py-4 md:px-6   items-center">
             <div className="text-black font-bold ">
-              <h2 className="text-3xl">Trendé</h2>
+              <h2 className="text-2xl md:text-3xl">Trendé</h2>
             </div>
             <div>
               <div className=" hidden md:flex space-x-3 ">
@@ -74,9 +74,9 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-            <div className="flex space-x-4 justify-center items-center *:text-2xl  ">
+            <div className="flex space-x-2 md:space-x-4 justify-center items-center *:text-xl *:md:text-2xl  ">
               <span  className="bg-white p-2 hover:bg-gray-100 rounded-full cursor-pointer">
-                <Link to='/profile'> 
+                <Link className="" to='/profile'> 
                   <CiUser />  
                 </Link>
               </span>
@@ -100,7 +100,7 @@ const Navbar = () => {
           </div>
           <CartDrawer drawerisOpen={cartopen} handlecartToggle={handlecartToggle} />
           <NavDrawer drawerisOpen={navDrawerOpen} toggleNavDrawer={toggleNavDrawer} />
-    </>
+    </div>
   );
 };
 
