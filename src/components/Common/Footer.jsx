@@ -18,9 +18,9 @@ const Footer = () => {
             <p className='font-light'>Be the first to hear about new products,
 exclusive events, and online offers. </p>
             <p>Sign up and get 10% off your first order.</p>
-            <form className='border flex rounded shrink w-fit'>
-                <input type="text" placeholder='Enter your email...'  className='outline-none flex  m-0.5' />
-                <button className='p-2 rounded bg-black text-white'>Subcribe</button>
+            <form className='border  flex flex-row rounded w-fit'>
+                <input type="text" placeholder='Enter your email...' id='submail'  className='outline-none flex  w-full m-0.5' />
+                <button type='submit' className='p-2 w-fit rounded text-sm bg-black text-white'>Subcribe</button>
             </form>
         </div>
         {/* Shop links */}

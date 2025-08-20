@@ -12,7 +12,7 @@ const CollectionPage = () => {
 
   const sidebarRef=useRef(null)
   const buttonRef=useRef(null)
-  console.log(sidebarRef)
+  // console.log(sidebarRef)
 
   const [isSidebarOpen,setisSidebarOpen]=useState(false);
 
@@ -117,18 +117,18 @@ const CollectionPage = () => {
     }, 2000);
   }, []);
   return(
-  <div className="flex flex-col  lg:flex-row">
+  <div className="flex flex-col relative lg:flex-row">
     {/* Mobile filter button */}
     <button  ref={buttonRef} onClick={toggleSidebar} className=" lg:hidden  border p-2 flex space-x-2 justify-center items-center">
         <FaFilter className="mr-2"/>
         <span className="text-lg">Filter</span>
     </button>
     {/* Filter Sidebar */}
-    <div  ref={sidebarRef} className={`${isSidebarOpen?"translate-x-0":"-translate-x-full"} lg:-translate-x-full fixed inset-y-0 bg-white w-64 z-50 left-0 overflow-y-auto transition-transform duration-300  `}>
+    <div  ref={sidebarRef} className={`${isSidebarOpen?"translate-x-0":"-translate-x-full"} z-50 lg:z-0   fixed inset-y-0 bg-white w-64  left-0 overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:static   `}>
         <FilterSidebar/>
     </div>
-    <div className="grow p-4">
-        <h2 className="text-2xl uppercase mb-4">All Collection</h2>
+    <div className="grow p-4 ">
+        <h2 className="text-xl  uppercase mb-4">All Collection</h2>
         {/* sort */}
         <SortOptions/>  
         {/* Product Grid */}

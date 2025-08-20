@@ -7,7 +7,7 @@ const NavDrawer = ({drawerisOpen,toggleNavDrawer}) => {
      const items = [
     {
       name: "MEN",
-      href: "#",
+      href: "collections/all",
     },
     {
       name: "WOMEN",
