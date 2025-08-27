@@ -31,7 +31,8 @@ const SearchBar = () => {
             </button>
 
             </div>
-            <button type='button' className='bg-white  p-2  hover:bg-gray-100 rounded-full cursor-pointer' onClick={()=>{setisOpen(false)}} >
+            <button type='button' className='bg-white  p-2  hover:bg-gray-100 rounded-full cursor-pointer'
+             onClick={handleToggle} >
                 <HiMiniXMark/>
             </button>
            </form>
