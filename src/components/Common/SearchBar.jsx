@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HiMiniXMark } from 'react-icons/hi2';
 import { IoBagOutline, IoSearchOutline } from "react-icons/io5";
 
@@ -17,6 +17,10 @@ const SearchBar = () => {
         console.log("Form get Submited",e.target[0].value)
         setsearchTerm("")
     }
+
+    useEffect(() => {
+        
+    }, [isOpen])
   return (
     <>
     <div className={`flex justify-center items-center ${isOpen?"absolute top-0 left-0  transition-all ease-out duration-75 bg-white w-full h-22 md:h-28 z-50":"w-auto"}`} >
@@ -36,7 +40,7 @@ const SearchBar = () => {
                 <HiMiniXMark/>
             </button>
            </form>
-        ): <button onClick={handleToggle} className='bg-white  p-2  hover:bg-gray-100 rounded-full cursor-pointer' ><IoSearchOutline/></button>}
+        ): <button type='button' onClick={handleToggle} className='bg-white  p-2  hover:bg-gray-100 rounded-full cursor-pointer' ><IoSearchOutline/></button>}
     </div>
     </>
   )
