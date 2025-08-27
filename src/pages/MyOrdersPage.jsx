@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { data } from 'react-router';
+import { data, useNavigate } from 'react-router';
+import OrderLoader from '../components/Common/OrderLoader';
 
 const MyOrdersPage = () => {
     const [orders,SetOrders]=useState([]);
-
+    const [loading,setLoading]=useState(true);
     const titles=["IMAGE","ORDER ID","CREATED","SHIPPING ADDRESS","ITEMS","PRICE","STATUS"]
-
+    const navigate=useNavigate();
     useEffect(()=>{
+
         setTimeout(() => {
             const mockorders=[
                 {
@@ -40,8 +42,13 @@ const MyOrdersPage = () => {
 
             ];
             SetOrders(mockorders)
+            setLoading(false);
         }, 1000);
+
     },[])
+    const handleRowClick=(order_id)=>{
+        navigate(`/order/${order_id}`);
+    }
   return (
     <section className='max-w-7xl mx-auto p-4 sm:p-6'>
         <h2 className='text-xl font-bold sm:text-2xl mb-6'>My Orders</h2>
@@ -50,14 +57,21 @@ const MyOrdersPage = () => {
                 <thead className='bg-gray-100 text-sm uppercase text-gray-700'>
                     <tr className='text-left'>
                         {titles.map((titile,idx)=>(
-                        <th className='py-2 px-4 sm:py-3'>{titile}</th>
+                        <th key={idx} className='py-2 px-4 sm:py-3'>{titile}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody className=''>
-                    {orders.length>0 ?(
+                    {loading?(
+                        <tr>
+                            <td colSpan={7} className='py-4 px-4 text-center' >
+                                <OrderLoader/>
+                            </td>
+                        </tr>
+                    ):(
+                         orders.length>0 ?(
                         orders.map((item,idx)=>(
-                           <tr className='text-left border-b-2 border-gray-100 hover:border-gray-50'>
+                           <tr onClick={()=>{handleRowClick(item._id)}} key={idx} className=' cursor-pointer text-left border-b-2 border-gray-100 hover:border-gray-50'>
                             <td className='p-2 sm:p-4'>
                                 <img src={item.orderItems[0].image}
                                 className='w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-lg' 
@@ -89,7 +103,9 @@ const MyOrdersPage = () => {
                     ):(
                     <tr>
                         <td colSpan={7} className='py-4 px-4 text-center text-gray-500' >You have no orders</td>
-                    </tr>)}
+                    </tr>)
+                    )}
+                   
                 </tbody>
             </table>
         </div>

@@ -13,7 +13,7 @@ const CartDrawer = ({drawerisOpen,handlecartToggle}) => {
   }
   return (
     <>
-    <div className={`fixed top-0 px-2 py-4 right-0 w-3/4 sm:w-1/2 md:w-[30rem] h-svh bg-white shadow-lg transform transition-transform duration-100 z-50 ${drawerisOpen?"translate-x-0":"translate-x-full"}` }>
+    <div className={`fixed min-h-screen top-0 px-2 py-4 right-0 w-3/4 sm:w-1/2 md:w-[30rem] h-svh bg-white shadow-lg transform transition-transform duration-100 z-50 ${drawerisOpen?"translate-x-0":"translate-x-full"}` }>
       <div className='flex  text-2xl font-bold  justify-end ' >
         <button onClick={handlecartToggle} className='bg-white p-2 relative hover:bg-gray-100 rounded-full cursor-pointer' >
         <HiMiniXMark/>

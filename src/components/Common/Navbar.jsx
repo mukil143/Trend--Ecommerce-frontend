@@ -74,21 +74,25 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-            <div className="flex space-x-2 md:space-x-4 justify-center items-center *:text-xl *:md:text-2xl  ">
-              <span  className="bg-white p-2 hover:bg-gray-100 rounded-full cursor-pointer">
+            {/* Right Section */}
+            <div className="flex   justify-center items-center *:text-xl *:md:text-2xl  ">
+              <Link to='/admin' className="flex items-center mr-2 " >
+              <span className="text-[10px] my-auto sm:text-sm bg-black text-white rounded px-1 py-0.5">Admin</span>
+              </Link>
+              <span  className="bg-white p-2 hover:bg-gray-100 rounded-full mr-2 cursor-pointer">
                 <Link className="" to='/profile'> 
                   <CiUser />  
                 </Link>
               </span>
 
-              <button onClick={handlecartToggle} className=  "bg-white p-2 relative hover:bg-gray-100 rounded-full cursor-pointer">
+              <button onClick={handlecartToggle} className=  "bg-white p-2 mr-2 relative hover:bg-gray-100 rounded-full cursor-pointer">
                 <IoBagOutline/>
                 <span className="absolute px-1 top-2 ring right-1 bg-red-500 text-white  text-xs rounded-full">4</span>
               </button>
               {/* <span className="bg-white p-2 hover:bg-gray-100 rounded-full cursor-pointer">
                 <IoSearchOutline />
               </span> */}
-              <div className="overflow-hidden">
+              <div className="overflow-hidden mr-2 md:mr-0">
 
                 <SearchBar/>
               </div>

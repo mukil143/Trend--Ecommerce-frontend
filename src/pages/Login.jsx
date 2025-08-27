@@ -29,7 +29,7 @@ const Login = () => {
 
                 <div className=' border focus-within:border-1 focus-within:border-blue-600  rounded py-2 px-2 mb-4 border-gray-200 flex items-center transform transition-transform duration-500 '>
                 <input type={`${isHide ?"password":"text"}`} value={password} onChange={(e)=>{setPassWord(e.target.value)}} placeholder='Enter your password'  className=' w-full outline-none ' />
-                <span className='text-xl cursor-pointer ' onClick={()=>{setishide(!isHide)}} >{isHide?<IoEyeOutline/>:<IoEyeOffOutline/>}</span>
+                <span className='text-xl cursor-pointer ' onClick={()=>{setishide(!isHide)}} >{isHide?<IoEyeOffOutline/>:<IoEyeOutline/>}</span>
                 </div>
 
                 <button type='submit' className='bg-black text-white w-full py-2 font-semibold rounded-lg hover:bg-gray-900 transition-colors duration-150 cursor-pointer mb-6'>Sign In</button>

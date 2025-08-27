@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import razorpay from '../../assets/razorpay-icon.svg';  
 import { SiRazorpay } from 'react-icons/si';
 import Razorpaybutton from './Razorpaybutton';
+import SuperLoader from '../Common/Loading';
 
 const Cart={
     products:[
@@ -30,6 +31,7 @@ const Cart={
 
 const Checkout = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [checkoutid,setcheckoutid]=useState(null);
     const [shippingAddress, setShippingAddress] = useState({
         firstName: '',
@@ -51,8 +53,11 @@ const Checkout = () => {
         setcheckoutid(Math.floor(Math.random() * 1000000)); // Generate a random checkout ID
     }
   return (
+    <>
+    {loading && <SuperLoader show={loading} message="Confirming your order..." />}
     <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-4 lg:py-10 lg:px-6 tracking-tight'>
         {/* Left Section */}
+       
         <div className="bg-white rounded-lg p-6">
             <h2 className='text-2xl uppercase mb-6' >Checkout</h2>
             <form className='' onSubmit={handleCreatecheckout} action="">
@@ -106,7 +111,7 @@ const Checkout = () => {
                     
                        ( <div>
                         
-                             <Razorpaybutton amount={Cart.totalprice} />
+                             <Razorpaybutton setLoading={setLoading} amount={Cart.totalprice} />
                              <p className='text-sm text-gray-500 mt-2'>Your checkout ID is: <span className='font-semibold'>{checkoutid}</span></p>
                         </div>
                      )
@@ -120,7 +125,7 @@ const Checkout = () => {
                 {Cart.products.map((product, index) => (
                     <div key={index} className="flex items-start justify-between mb-4">
                         <div className="flex items-start">
-                            <img src={product.image} alt={product.name} className=" w-16 md:w-18 md:h-20 rounded mr-4" />
+                            <img src={product.image} alt={product.name} className=" w-16 md:w-20 md:h-24 rounded mr-4" />
                             <div>
                                 <h3 className= " text-sm md:text-lg font-semibold">{product.name}</h3>
                                 <p className="text-xs md:text-sm text-gray-500 font-semibold">Size: {product.size}</p>
@@ -134,7 +139,7 @@ const Checkout = () => {
             <div className="border-t py-4 ">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className='text-sm md:text-lg font-semibold'>Subtotal</h2>
-                    <span className='text-sm md:text-lg font-semibold'>₹{Cart.totalprice}</span>
+                    <span className='text-sm md:text-lg font-semibold'>₹{Cart.totalprice?.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center ">
                     <h2 className='text-sm md:text-lg font-semibold'>Shipping</h2>
@@ -144,11 +149,13 @@ const Checkout = () => {
             <div className="border-t py-4">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className='text-sm md:text-lg font-semibold'>Total</h2>
-                    <span className='text-sm md:text-lg font-semibold'>₹{Cart.totalprice}</span>
+                    <span className='text-sm md:text-lg font-semibold'>₹{Cart.totalprice?.toLocaleString()}</span>
                 </div>
             </div>
         </div>
     </div>
+    </>
+
   )
 }
 

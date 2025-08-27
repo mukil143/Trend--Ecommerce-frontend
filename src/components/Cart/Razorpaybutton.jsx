@@ -1,15 +1,17 @@
 import React from 'react'
 import razorpay from '../../assets/razorpay-icon.svg';
+import { useNavigate } from 'react-router-dom';
 
-const Razorpaybutton = ({amount}) => {
-
+const Razorpaybutton = ({amount,setLoading}) => {
+    const navigate = useNavigate();
     const localhostbackendurl = "http://localhost:8080/api/payment"; // Adjust this to your backend URL
     const handlepayment = async (e) => {
         // Logic for handling Razorpay payment
         e.preventDefault();
-        console.log("Payment initiated");
-
-        const data = await fetch(`${localhostbackendurl}/orders`,{
+        setLoading(true); // Set loading state to true
+        //console.log("Payment initiated");
+        try {
+           const data = await fetch(`${localhostbackendurl}/orders`,{
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,12 +24,18 @@ const Razorpaybutton = ({amount}) => {
         const orderdata = await data.json();
         
         initiatePayment(orderdata.order);
+        } catch (error) {
+            //console.error("Error initiating payment:", error);
+            alert("Failed to initiate payment. Please try again later.");
+            // Optionally, you can redirect or handle the error in a user-friendly way
+        }
+      
 
     }
 
     const initiatePayment = (order) => {
 
-       console.log("Initiating Razorpay payment:", order);
+       //console.log("Initiating Razorpay payment:", order);
        const options={
         key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Your Razorpay key ID
         amount: order.amount, // Amount in paise
@@ -48,13 +56,17 @@ const Razorpaybutton = ({amount}) => {
             }),
           }) 
           const paymentData = await paymentResponse.json();
-          console.log("Payment verification response:", paymentData);
+          //console.log("Payment verification response:", paymentData);
           if(paymentData.status === 200){
-            console.log("Payment verification successful:", paymentData);
-            alert("Payment successful!");
+            //console.log("Payment verification successful:", paymentData);
+            setLoading(false); // Set loading state to false
+            navigate('/order-confirmation');
+            // alert("Payment successful!");  
           }
           else{
-            console.error("Payment verification failed:", paymentData);
+            navigate('/checkout');
+            setLoading(false); // Set loading state to false
+            ////console.error("Payment verification failed:", paymentData);
             alert("Payment verification failed. Please try again.");
           }
           // Perform any necessary actions after successful payment

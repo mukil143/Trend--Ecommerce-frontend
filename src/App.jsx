@@ -12,9 +12,15 @@ import Profile from './pages/Profile'
 import CollectionPage from './pages/CollectionPage'
 import ProductDetails from './components/Products/ProductDetails'
 import Checkout from './components/Cart/Checkout'
+import OrderConfirmationPage from './pages/OrderConfirmationPage'
+import OrderDetailsPage from './pages/OrderDetailsPage'
+// import MyOrderPage from './pages/MyOrderPage'
+import MyOrdersPage from './pages/MyOrdersPage'
+import AdminLayout from './components/Admin/AdminLayout'
+import AdminHomePage from './components/Admin/AdminHomePage'
+import UserManagement from './components/Admin/UserManagement'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -29,6 +35,13 @@ function App() {
       <Route path='collections/:collection' element={<CollectionPage/>}/>
       <Route path='product/:id' element={<ProductDetails/>}/>
       <Route path='checkout' element={<Checkout/>}/>
+      <Route path='order-confirmation' element={<OrderConfirmationPage/>}/>
+      <Route path='order/:id' element={<OrderDetailsPage/>}/>
+      <Route path='my-orders' element={<MyOrdersPage/>}/>
+      </Route>
+      <Route path='/admin' element={<AdminLayout/>}>
+       <Route index element={<AdminHomePage/>}/>
+       <Route path='users' element={<UserManagement/>}/>
       </Route>
     </Routes>
     </>

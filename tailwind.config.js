@@ -1,5 +1,4 @@
 // tailwind.config.js (v4+ with ESM syntax)
-import scrollbar from 'tailwind-scrollbar'
 
 export default {
   content: [
@@ -9,7 +8,4 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [
-    scrollbar,
-  ],
 }
