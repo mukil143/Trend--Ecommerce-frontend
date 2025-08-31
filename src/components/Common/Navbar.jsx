@@ -94,8 +94,15 @@ const Navbar = () => {
                 <IoSearchOutline />
               </span> */}
               <div className="overflow-hidden mr-2 md:mr-0">
-
-                <SearchBar isOpen={isOpen} setisOpen={setisOpen} />
+                {isOpen ? (
+                    <SearchBar isOpen={isOpen} setisOpen={setisOpen} />
+                       ) : (
+                    <button 
+                      onClick={() => setisOpen(true)} 
+                       className="bg-white p-2 hover:bg-gray-100 rounded-full cursor-pointer">
+                          <IoSearchOutline />
+                     </button>
+                 )}
               </div>
              
               <button onClick={toggleNavDrawer} className="md:hidden" >
