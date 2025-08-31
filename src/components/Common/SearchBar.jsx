@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { HiMiniXMark } from 'react-icons/hi2';
 import { IoBagOutline, IoSearchOutline } from "react-icons/io5";
 
-const SearchBar = () => {
+const SearchBar = ({isOpen,setisOpen}) => {
 
-    const [isOpen,setisOpen]=useState(false)
     const [searchTerm,setsearchTerm]=useState("")   
 
     const handleToggle=()=>{
@@ -18,13 +17,7 @@ const SearchBar = () => {
         setsearchTerm("")
     }
 
-    useEffect(() => {
-
-      return () => {
-        setisOpen(false)
-      }
-        
-    }, [])
+    
   return (
     <>
     <div className={`flex justify-center items-center ${isOpen?"absolute top-0 left-0  transition-all ease-out duration-75 bg-white w-full h-22 md:h-28 z-50":"w-auto"}`} >

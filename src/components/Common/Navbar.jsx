@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   
+  const [isOpen,setisOpen]=useState(false)
   const [cartopen,setcartopen]=useState(false)
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
 
@@ -94,7 +95,7 @@ const Navbar = () => {
               </span> */}
               <div className="overflow-hidden mr-2 md:mr-0">
 
-                <SearchBar/>
+                <SearchBar isOpen={isOpen} setisOpen={setisOpen} />
               </div>
              
               <button onClick={toggleNavDrawer} className="md:hidden" >
