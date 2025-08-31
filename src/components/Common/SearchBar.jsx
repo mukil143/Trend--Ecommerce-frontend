@@ -19,8 +19,12 @@ const SearchBar = () => {
     }
 
     useEffect(() => {
+
+      return () => {
+        setisOpen(false)
+      }
         
-    }, [isOpen])
+    }, [])
   return (
     <>
     <div className={`flex justify-center items-center ${isOpen?"absolute top-0 left-0  transition-all ease-out duration-75 bg-white w-full h-22 md:h-28 z-50":"w-auto"}`} >
