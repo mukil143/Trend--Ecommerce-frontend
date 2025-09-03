@@ -129,7 +129,8 @@ const UserManagement = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user,idx)=>(
+
+                    { users.length > 0 ? users.map((user,idx)=>(
                         <tr key={idx} className=''>
                             <td className='p-4 whitespace-nowrap'>{user.name}</td>
                             <td className='p-4'>{user.email}</td>
@@ -143,7 +144,9 @@ const UserManagement = () => {
                             <td className='p-4'>
                             <button onClick={()=>{handleDelete(user._id)}} className='border px-3 py-1 cursor-pointer bg-red-500 text-white rounded'>Delete</button></td>
                         </tr>
-                    ))}
+                    )):<tr>
+                            <td colSpan={5}  className='p-4 whitespace-nowrap text-center text-lg'>No Users</td>
+                        </tr>}
                 </tbody>
                 
             </table>

@@ -32,7 +32,7 @@ const AdminSidebar = () => {
         },
         {
             name:'Shop',
-            path:'/admin/shop',
+            path:'/',
             icon:<BsShop />
 
         }

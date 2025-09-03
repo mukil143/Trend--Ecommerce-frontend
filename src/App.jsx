@@ -19,6 +19,9 @@ import MyOrdersPage from './pages/MyOrdersPage'
 import AdminLayout from './components/Admin/AdminLayout'
 import AdminHomePage from './components/Admin/AdminHomePage'
 import UserManagement from './components/Admin/UserManagement'
+import ProductManagement from './components/Admin/ProductManagement'
+import EditProductPage from './components/Admin/EditProductPage'
+import OrdersInfopage from './components/Admin/OrdersInfopage'
 
 function App() {
 
@@ -26,7 +29,6 @@ function App() {
     <>
     <Toaster position='top-right' />
     <Routes>
-
       <Route path='/' element={<UserLayout/>}>
       <Route index element={<Home/>} />
       <Route path='login' element={<Login/>}/>
@@ -42,6 +44,9 @@ function App() {
       <Route path='/admin' element={<AdminLayout/>}>
        <Route index element={<AdminHomePage/>}/>
        <Route path='users' element={<UserManagement/>}/>
+       <Route path='products' element={<ProductManagement/>}/>
+       <Route path='products/:id/edit' element={<EditProductPage/>}/>
+       <Route path='orders' element={<OrdersInfopage/>}/>
       </Route>
     </Routes>
     </>
